@@ -1,4 +1,4 @@
-Server: ## login in CERN account 
+Server: ## sign in CERN account 
   user: <username>
   pwd: <password>
   host: lxplus.cern.ch
