@@ -1,4 +1,0 @@
-  File "/Users/xinst/work/db/hgtd_db/WriteSensor.py", line 51
-    UT = CurrentTime
-    ^
-SyntaxError: invalid syntax
