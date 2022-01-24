@@ -3,10 +3,10 @@ import pymysql
 import pandas as pd
 from sshtunnel import SSHTunnelForwarder
  
-import config
+import setup
 class SQLManager(object):
     def __init__(self,Config):
-        self.cfg = config.ReadConfig(Config)
+        self.cfg = setup.ReadConfig(Config)
         Server = self.cfg['Server']
         DB = self.cfg['DB']
         self.conn = None
@@ -55,7 +55,7 @@ class SQLManager(object):
 
 
 def main():
-    DB = SQLManager("config.yaml")
+    DB = SQLManager(".config.yaml")
     data = DB.Test("SELECT * FROM Hybrid LIMIT 10")
     print(data)
     DB.Close()

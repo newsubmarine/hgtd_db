@@ -1,0 +1,13 @@
+#Server: ## sign in CERN account 
+#  user: shxin
+#  host: lxplus.cern.ch
+#  port: 22
+
+
+#########################################
+DB:
+  host: dbod-hgtd-pdb.cern.ch
+  port: 5506
+  database: HGTDPDB
+  user: admin
+  pwd: HGTDdatabase

@@ -1,3 +1,20 @@
+Updated on 2022-01-16
+
+- Added authority for SSH processes and database access. 
+- Switched from pymysql to Sqlalchemy based framework
+- To do : programing Flask app
+
+## To run:
+* prepare your config file
+* connect SSH: 
+    `python3 get_engine.py`
+    `export ENGINE_STR=xxx`
+    storing the environment variable ENGINE_STR
+* Start flask app: python main.py
+
+
+
+
 A preliminary python-based(>=3.6) package for HGTD database development.
 2021-8-13
 

@@ -1,9 +1,10 @@
-import config
+from flask import Flask 
 
-cfg = config.ReadConfig("config.yaml")
-print(cfg)
+app = Flask(__name__)
 
-server = cfg['Server']
-database = cfg['Database']
-print(server['host'])
-print("xxx")
+@app.route("/")
+@app.route('/index')
+def hello_world():
+    return "Hello world!"
+
+app.run('127.0.0.1', port=5500)
