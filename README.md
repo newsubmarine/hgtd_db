@@ -5,12 +5,18 @@ Updated on 2022-01-16
 - Switched from pymysql to Sqlalchemy based framework
 - To do : programing Flask app
 
+## Setup:
+conda create --name hgtd_db python=3.6
+conda activate hgtd_db
+pip install -r requirement.txt
+
 ## To run:
-* prepare your config file
+If you are at lxplus.cern.ch, you don't need to setup SSH sshtunnel
+* prepare your config file: .config.yaml
 * connect SSH: 
-    `python3 get_engine.py`
-    `export ENGINE_STR=xxx`
-    storing the environment variable ENGINE_STR
+    //`python3 get_engine.py`
+    //`export ENGINE_STR=xxx`
+    //storing the environment variable ENGINE_STR
 * Start flask app: python main.py
 
 
