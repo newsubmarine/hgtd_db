@@ -30,10 +30,10 @@ class ConnHandler():
 		else: self.pwd = server["password"] 
 		logger.debug(f"> {server} {db}")
 		self.ssh_server = SSHTunnelForwarder(
-            (server['host'], server['port']),
-            ssh_password= self.pwd,
-            ssh_username=server['user'],
-            remote_bind_address=(db['host'], db['port']),
+			(server['host'], server['port']),
+			ssh_password= self.pwd,
+			ssh_username=server['user'],
+			remote_bind_address=(db['host'], db['port']),
 			logger=None)
 		self.ssh_server.start()
 		
@@ -63,12 +63,13 @@ class ConnHandler():
 	def get_engine_string(self):
 		server = self.db_config.server
 		db     = self.db_config.db
-		pwd = db['pwd'] 
+		if 'pwd' in db.keys():
+			pwd = db['pwd']
+		else:
+			pwd = self.get_passwd('db')
 		if not server or re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
 			string = f"mysql+pymysql://{db['user']}:{pwd}@{db['host']}/{db['database']}" ##locally connect
 		else: 
-		    if not db['pwd']:
-			    pwd = self.get_passwd('get_passwd')
 			string =  f"mysql+pymysql://{db['user']}:{pwd}@localhost:{self.local_bt}/{db['database']}" ##remotely connect
 		return string
 
