@@ -15,7 +15,11 @@ parser.add_argument("--sensorid")
 def ReadSensor():
     data = "*"
     selection = True
+<<<<<<< HEAD
     DB = SQLManager.SQLManager(".config.yaml")
+=======
+    DB = SQLManager.SQLManager("config.yaml")
+>>>>>>> 93794ce6c983bb8780729e2513b7193688902252
     sql = f"SELECT {data} from Sensor where {selection}"
     output = DB.QuerySQL(sql)
     print(output)

@@ -35,7 +35,11 @@ def CSVtoJson(csvfile):
     values = df.values
     values = [[row[i] for row in values] for i in range(len(values[0]))] ##transport the list
     dic = dict(zip(head,values))
+<<<<<<< HEAD
     return json.loads(json.dumps(dic))
+=======
+    return json.dumps(dic)
+>>>>>>> 93794ce6c983bb8780729e2513b7193688902252
 
 def WriteSensorIVCV(table,File,datatype):
     if( File == "") :

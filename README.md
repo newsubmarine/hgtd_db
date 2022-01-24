@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Updated on 2022-01-16
 
 - Added authority for SSH processes and database access. 
@@ -15,6 +16,8 @@ Updated on 2022-01-16
 
 
 
+=======
+>>>>>>> 93794ce6c983bb8780729e2513b7193688902252
 A preliminary python-based(>=3.6) package for HGTD database development.
 2021-8-13
 
