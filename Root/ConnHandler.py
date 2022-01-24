@@ -18,7 +18,7 @@ class ConnHandler():
 		#self.ssh_server = None
 		self.get_config(Config)
 		self.print_config(Config)
-		if not self.get_engine_string or self.db_config.server or re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
+		if not self.get_engine_string or self.db_config.server or not re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
 			self.connect_ssh()
 			self.local_bt = self.get_local_bind_port()
 	
