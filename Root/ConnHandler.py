@@ -18,7 +18,7 @@ class ConnHandler():
 		#self.ssh_server = None
 		self.get_config(Config)
 		self.print_config(Config)
-		if not self.get_engine_string or self.db_config.server or re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
+		if (not self.get_engine_string or self.db_config.server) and not re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
 			self.connect_ssh()
 			self.local_bt = self.get_local_bind_port()
 	
@@ -67,7 +67,7 @@ class ConnHandler():
 		if not db['pwd']:
 			pwd = self.get_passwd('get_passwd')
 		if not server or re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
-			string = f"mysql+pymysql://{db['user']}:{pwd}@{db['host']}/{db['database']}" ##locally connect
+			string = f"mysql+pymysql://{db['user']}:{pwd}@{db['host']}:{db['port']}/{db['database']}" ##locally connect
 		else: 
 			string =  f"mysql+pymysql://{db['user']}:{pwd}@localhost:{self.local_bt}/{db['database']}" ##remotely connect
 		return string

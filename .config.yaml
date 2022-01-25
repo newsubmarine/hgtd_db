@@ -8,6 +8,6 @@ Server: ## sign in CERN account
 DB:
   host: dbod-hgtd-pdb.cern.ch
   port: 5506
-  database: HGTDPDB
+  database: HGTDDBByShuiting
   user: admin
   pwd: HGTDdatabase

@@ -1,9 +1,9 @@
 from telnetlib import SE
-from database import Session
+from Root.database import Session
 from models.Models import Sensor
 import matplotlib.pyplot as plt 
-from Utils import get_sn
-from WriteSensor import CSVtoJson
+from utils.series_numbers import get_sn
+from old.WriteSensor import CSVtoJson
 import time 
 import pandas as pd
 
@@ -17,7 +17,7 @@ SN = get_sn("Sensor")
 sensor1 = Sensor(SensorId = SN,CreateTime = get_time(), UpdateTime = get_time(),IV=IV,CV=CV)
 Session.add(sensor1)
 Session.commit()
-
+#SN = "20UHASE5739416"
 ## Read
 metadata = Session.query(Sensor).filter_by(SensorId = SN).first()
 print(metadata)
@@ -31,5 +31,5 @@ metadata.UpdateTime = get_time()
 Session.commit()
 
 ## Delete
-metadata.delete()
+Session.query(Sensor).filter_by(SensorId = SN).delete()
 Session.commit()
