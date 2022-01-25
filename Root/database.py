@@ -12,7 +12,6 @@ logging.getLogger().setLevel(logging.INFO)
 
 Base = declarative_base()
 connect = ConnHandler(".config.yaml")
-print(connect.get_engine_string())
 engine = create_engine(connect.get_engine_string())
 Session = scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=engine))
 

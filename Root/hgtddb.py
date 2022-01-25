@@ -6,7 +6,7 @@ from flask_bootstrap import Bootstrap
 
 from app import create_app
 
-from database import Session
+from Root.database import Session
 #from database import Session
 app = create_app()
 bootstrap = Bootstrap(app)
