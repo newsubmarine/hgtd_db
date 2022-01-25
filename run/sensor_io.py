@@ -1,4 +1,3 @@
-from telnetlib import SE
 from database import Session
 from models.Models import Sensor
 import matplotlib.pyplot as plt 

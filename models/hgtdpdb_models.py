@@ -2,8 +2,8 @@ from re import S
 import site
 from sqlalchemy.sql.expression import update
 from sqlalchemy import  Column, Integer, String, FLOAT, JSON, CHAR, DATETIME, ForeignKey, INT, BLOB
-from Utils import IsVilid
-from database import Base
+from utils.series_numbers import IsVilid
+from Root.database import Base
 import logging
 
 logger = logging.getLogger(__name__)

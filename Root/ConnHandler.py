@@ -68,7 +68,7 @@ class ConnHandler():
 		else:
 			pwd = self.get_passwd('db')
 		if not server or re.match(r'lxplus\d{3}.cern.ch',os.popen("hostname").read()):
-			string = f"mysql+pymysql://{db['user']}:{pwd}@{db['host']}/{db['database']}" ##locally connect
+			string = f"mysql+pymysql://{db['user']}:{pwd}@{db['host']}:{db['port']}/{db['database']}" ##locally connect
 		else: 
 			string =  f"mysql+pymysql://{db['user']}:{pwd}@localhost:{self.local_bt}/{db['database']}" ##remotely connect
 		return string
