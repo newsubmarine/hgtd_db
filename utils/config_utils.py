@@ -28,6 +28,8 @@ class HGTD_config(Config):
 			self.db = dict["DB"]
 		else:
 			logger.critical(f"DB is not provided in {config} !")
+		if "Verbose" in dict:
+			self.verbose = dict['Verbose']
 		logger.info(f"{dict}")
 '''
 class Flask_config(Config):

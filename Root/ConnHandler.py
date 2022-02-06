@@ -9,7 +9,7 @@ import os,re
 
 logger = logging.getLogger("hgtd_db")
 logging.basicConfig()
-logging.getLogger().setLevel(logging.INFO)
+logging.getLogger().setLevel(logging.WARNING)
 
 class ConnHandler():
 	"""Main Handler for initializing connection """
@@ -28,13 +28,12 @@ class ConnHandler():
 		if "password" not in server.keys():
 			self.pwd = self.get_passwd('server')
 		else: self.pwd = server["password"] 
-		logger.debug(f"> {server} {db}")
+		logger.info(f"> {server} {db}")
 		self.ssh_server = SSHTunnelForwarder(
 			(server['host'], server['port']),
 			ssh_password= self.pwd,
 			ssh_username=server['user'],
-			remote_bind_address=(db['host'], db['port']),
-			logger=None)
+			remote_bind_address=(db['host'], db['port']))
 		self.ssh_server.start()
 		
 		logger.info(f">> Sucessfully connect to {db['host']} at {server['host']} !")

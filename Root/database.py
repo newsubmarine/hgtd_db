@@ -6,7 +6,7 @@ import os
 from Root.ConnHandler import ConnHandler
 logger = logging.getLogger("hgtd_db")
 logging.basicConfig()
-logging.getLogger().setLevel(logging.INFO)
+logging.getLogger().setLevel(logging.WARNING)
 
 ## Only be calling creat_engine and session once !
 
