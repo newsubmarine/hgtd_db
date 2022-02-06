@@ -1,3 +1,4 @@
+from inspect import CO_VARARGS
 from re import S
 import site
 from sqlalchemy.sql.expression import update
@@ -85,13 +86,14 @@ class Sensor(HGTDModel):
 	metroz        = Column(FLOAT)
 	hybridid      = Column(INT)
 	SN            = Column(CHAR)
-
+	IV			  = Column(CHAR)
+	CV 			  = Column(CHAR)
 	def __repr__(self) -> str:
 	    return "<Sensor(id = '%s')>" % (self.id)
 
 
 class FlexTail(HGTDModel):
-	__tablename__ = "FlexTail"
+	__tablename__ = "flextail"
 	flexTailid      = Column(INT, primary_key= True)
 	Vendor        = Column(CHAR)
 	batch         = Column(CHAR)
@@ -106,7 +108,7 @@ class FlexTail(HGTDModel):
 
 
 class Glue(HGTDModel):
-	__tablename__ = "Glue"
+	__tablename__ = "glue"
 	id      = Column(INT, primary_key= True)
 	site          = Column(CHAR)
 	vendor        = Column(CHAR)
@@ -117,7 +119,7 @@ class Glue(HGTDModel):
 	    return "<Glue(ID = '%s')>" % (self.id)
 
 class Module(HGTDModel):
-	__tablename__ = "Module"
+	__tablename__ = "module"
 	id            = Column(CHAR, primary_key= True)
 	site     = Column(CHAR)
 	date         = Column(TIMESTAMP)
@@ -158,7 +160,7 @@ class Moduleflex(HGTDModel):
 	    return "<ModuleFlex(ud = '%s')>" % (self.id)
 
 class SupportUnit(HGTDModel):
-	__tablename__ = "SupportUnit"
+	__tablename__ = "supportunit"
 	id			  = Column(CHAR, primary_key= True)
 	vendor        = Column(CHAR)
 	batch         = Column(CHAR)
@@ -173,7 +175,7 @@ class SupportUnit(HGTDModel):
 	    return "<SupportUnit(SupportUnitId = '%s')>" % (self.id)
 
 class ThermalGrease(HGTDModel):
-	__tablename__ = "ThermalGrease"
+	__tablename__ = "thermalgrease"
 	id            = Column(CHAR, primary_key= True)
 	site          = Column(CHAR)
 	vendor        = Column(CHAR)
