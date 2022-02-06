@@ -32,6 +32,7 @@ Write metadatas to the database:
 - `python Root/opration.py insert --type <tablename> --input <input csv> --update`,
     - input format should be identical with the template. See example share/csv_template/sensor_tempplate.csv
     - turn on `-- update` if the input rows are reduplicated.
+- example: `python Root/opration.py insert --type sensor --input share/template/sensor_test.csv --update`
 
 Currently logos are at default level.
 
